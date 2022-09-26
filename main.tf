@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "4.9.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
 resource "aws_security_group" "sec-gr" {
   name = "test"
   description = "test1"
