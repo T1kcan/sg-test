@@ -37,9 +37,9 @@ func Test(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 
 	// To get the value of an output variable, run 'terraform output'
-	Tag := terraform.Output(t, terraformOptions, "tf_example_private_ip")
+	Tag := terraform.Output(t, terraformOptions, "tf_example_ec2_type")
 
 	// Check that we get back the outputs that we expect
-	assert.Contains(t, Tag, "172")
+	assert.Contains(t, Tag, "t2.micro")
 
 }
