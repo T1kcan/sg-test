@@ -21,7 +21,7 @@ jobs:
           terraform_wrapper: false
 
       - name: Terraform Lint
-        run: terraform fmt --diff --check --recursive
+        run: terraform fmt #--diff --check --recursive
         
       - name: Terraform Validate
         run: terraform init; terraform validate
