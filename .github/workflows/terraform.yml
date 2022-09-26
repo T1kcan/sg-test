@@ -41,7 +41,7 @@ jobs:
         run: go mod init test
 
       - name: Unit Test with Terratest
-        working-directory: test/
+        working-directory: /home/runner/work/sg-test/sg-test/test
         run: go test -v -timeout 10m
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
