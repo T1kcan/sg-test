@@ -40,6 +40,6 @@ func Test(t *testing.T) {
 	Tag := terraform.Output(t, terraformOptions, "tf_example_private_ip")
 
 	// Check that we get back the outputs that we expect
-	assert.Contains(t, Tag, ".")
+	assert.Contains(t, Tag, "172")
 
 }
