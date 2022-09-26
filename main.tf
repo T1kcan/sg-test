@@ -42,3 +42,7 @@ output "tf_example_private_ip" {
   value = aws_instance.tf-ec2.private_ip
 }
 
+output "tf_example_ec2_type" {
+  value = aws_instance.tf-ec2.instance_type
+}
+
