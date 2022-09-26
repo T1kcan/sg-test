@@ -9,8 +9,8 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
-  aws_access_key_id = $ACCESS_KEY
-  aws_secret_access_key = $SECRET_KEY
+ # aws_access_key_id = $ACCESS_KEY
+ # aws_secret_access_key = $SECRET_KEY
 }
 
 resource "aws_security_group" "sec-gr" {
