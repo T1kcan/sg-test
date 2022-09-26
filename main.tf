@@ -1,6 +1,6 @@
 resource "aws_security_group" "sec-gr" {
   name = "test"
-  description = "test""
+  description = "test1"
   
   ingress {
     from_port   = 22
