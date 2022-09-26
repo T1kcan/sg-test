@@ -37,9 +37,9 @@ func Test(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 
 	// To get the value of an output variable, run 'terraform output'
-	Tag := terraform.Output(t, terraformOptions, "bucket_tag")
+	Tag := terraform.Output(t, terraformOptions, "tf_example_private_ip")
 
 	// Check that we get back the outputs that we expect
-	assert.Contains(t, Tag, "Flugel's bucket")
+	assert.Contains(t, Tag, ".")
 
 }
