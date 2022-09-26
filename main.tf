@@ -1,33 +1,41 @@
+provider "aws" {
+  region  = "us-east-1"
+}
+
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = "4.9.0"
+      source = "hashicorp/aws"
+      version = "4.8.0"
     }
   }
 }
 
-provider "aws" {
-  region = "us-east-1"
- # aws_access_key_id = $ACCESS_KEY
- # aws_secret_access_key = $SECRET_KEY
+variable "ec2_name" {
+  default = "flugel"
 }
 
-resource "aws_security_group" "sec-gr" {
-  name = "test"
-  description = "test1"
-  
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+variable "ec2_type" {
+  default = "t2.micro"
+}
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+variable "ec2_ami" {
+  default = "ami-0742b4e673072066f"
+}
+
+resource "aws_instance" "tf-ec2" {
+  ami           = var.ec2_ami
+  instance_type = var.ec2_type
+  key_name      = "firstkey"
+  tags = {
+    Name = "${var.ec2_name}-instance"
   }
+}
+
+output "tf-example-public_ip" {
+  value = aws_instance.tf-ec2.public_ip
+}
+
+output "tf_example_private_ip" {
+  value = aws_instance.tf-ec2.private_ip
 }
