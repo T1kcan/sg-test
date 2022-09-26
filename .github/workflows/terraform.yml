@@ -41,7 +41,7 @@ jobs:
         run: go mod init test
 
       - name: Unit Test with Terratest
-        working-directory: /home/runner/work/sikv3-aws-security-groups/test
+        working-directory: test/
         run: go test -v -timeout 10m
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
